@@ -77,7 +77,7 @@ public class VideoCallApplication {
     boolean turnOffVideoGroupCallForUser = videoCallService_.isTurnOffVideoCallForUser(true);
     boolean turnOffVideoCall = videoCallService_.isTurnOffVideoCall();
     if (tokenKey == null) {
-      String profile_id = videoCallModel.getProfileId();
+      String profile_id = PropertyManager.getProperty(PropertyManager.PROPERTY_VIDEO_PROFILE);
       AuthService authService = new AuthService();
       String content = authService.authenticate(null, profile_id);
       if (!StringUtils.isEmpty(content)) {
